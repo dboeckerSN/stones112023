@@ -1,6 +1,7 @@
-Heute ist {{ today | date : "fullDate" }}
+<mat-toolbar color="primary"><span>Stones</span></mat-toolbar> Heute ist
+{{ today | date : "fullDate" }}
 @for (prod of products | slice:0:3; track prod.id; let isEven = $even) {
-<div [ngClass]="{ 'grey-background': isEven }">
+<mat-card [ngClass]="{ 'grey-background': isEven }">
   <stn-product [product]="prod"></stn-product>
-</div>
+</mat-card>
 }

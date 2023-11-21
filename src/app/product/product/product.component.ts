@@ -17,7 +17,9 @@ export class ProductComponent {
   };
 
   raisePrice() {
+    console.log('Alter Preis:' + this.product.price);
     this.product.price += 5;
+    console.log('Neuer Preis:' + this.product.price);
     this.priceChange.emit(this.product.price);
   }
 
