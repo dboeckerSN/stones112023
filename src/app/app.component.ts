@@ -14,4 +14,8 @@ export class AppComponent {
     this.productParent.price = price;
     alert('Neuer Preis: ' + price);
   }
+  changePrice(price: string) {
+    this.productParent.price = +price;
+    alert('Neuer Preis: ' + price);
+  }
 }
