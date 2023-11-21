@@ -1,6 +1,6 @@
-<div
-  *ngFor="let prod of products; let isEven = even"
-  [ngClass]="{ 'grey-background': isEven }"
->
+Heute ist {{ today | date : "fullDate" }}
+@for (prod of products | slice:0:3; track prod.id; let isEven = $even) {
+<div [ngClass]="{ 'grey-background': isEven }">
   <stn-product [product]="prod"></stn-product>
 </div>
+}
