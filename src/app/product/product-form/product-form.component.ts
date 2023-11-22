@@ -8,6 +8,7 @@ import {
 import { Product } from '../product';
 import { CustomValidators } from '../../utils/validators/custom-validators';
 import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'stn-product-form',
@@ -15,8 +16,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './product-form.component.css',
 })
 export class ProductFormComponent implements OnInit {
-  @Output() addProduct = new EventEmitter<Product>();
-
   // productForm = new FormGroup({
   //   name: new FormControl(''),
   //   price: new FormControl(0),
@@ -30,7 +29,11 @@ export class ProductFormComponent implements OnInit {
 
   id = '';
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute) {}
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap) => {
@@ -53,7 +56,7 @@ export class ProductFormComponent implements OnInit {
         formValue.weight
       );
 
-      this.addProduct.emit(product);
+      this.productService.addProduct(product);
       this.productForm.reset();
     }
   }
