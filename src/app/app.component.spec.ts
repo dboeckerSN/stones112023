@@ -4,12 +4,19 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product/product.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { ProductFormComponent } from './product/product-form/product-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, MatToolbarModule, MatCardModule],
-      declarations: [AppComponent, ProductComponent],
+      imports: [
+        RouterTestingModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatFormFieldModule,
+      ],
+      declarations: [AppComponent, ProductComponent, ProductFormComponent],
     }).compileComponents();
   });
 

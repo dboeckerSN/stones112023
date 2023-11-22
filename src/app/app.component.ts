@@ -55,6 +55,10 @@ export class AppComponent {
     },
   ];
 
+  onAddProduct(product: Product) {
+    this.products.unshift(product);
+  }
+
   // onPriceChanged(price: number) {
   //   this.productParent.price = price;
   //   alert('Neuer Preis: ' + price);
