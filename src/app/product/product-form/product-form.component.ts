@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -7,13 +7,14 @@ import {
 } from '@angular/forms';
 import { Product } from '../product';
 import { CustomValidators } from '../../utils/validators/custom-validators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'stn-product-form',
   templateUrl: './product-form.component.html',
   styleUrl: './product-form.component.css',
 })
-export class ProductFormComponent {
+export class ProductFormComponent implements OnInit {
   @Output() addProduct = new EventEmitter<Product>();
 
   // productForm = new FormGroup({
@@ -27,7 +28,15 @@ export class ProductFormComponent {
     weight: [0, [Validators.required]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  id = '';
+
+  constructor(private fb: FormBuilder, private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((paramMap) => {
+      this.id = paramMap.get('id') ?? '-1';
+    });
+  }
 
   saveProduct() {
     const formValue = this.productForm.value;
@@ -38,7 +47,7 @@ export class ProductFormComponent {
       formValue.weight
     ) {
       const product = new Product(
-        -1,
+        +this.id,
         formValue.name,
         formValue.price,
         formValue.weight
@@ -46,6 +55,17 @@ export class ProductFormComponent {
 
       this.addProduct.emit(product);
       this.productForm.reset();
+    }
+  }
+
+  hasSaved(): boolean {
+    const formValue = this.productForm.value;
+    if (!formValue.name && !formValue.price && !formValue.weight) {
+      return true;
+    } else {
+      return confirm(
+        'Du hast ungespeicherte Eingaben, möchtest du wirklich wegnavigieren?'
+      );
     }
   }
 }

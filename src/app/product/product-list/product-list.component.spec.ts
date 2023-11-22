@@ -4,6 +4,7 @@ import { ProductListComponent } from './product-list.component';
 import { MatCardModule } from '@angular/material/card';
 import { ProductComponent } from '../product/product.component';
 import { NettoPipe } from '../../utils/pipes/netto.pipe';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -12,7 +13,7 @@ describe('ProductListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ProductListComponent, ProductComponent, NettoPipe],
-      imports: [MatCardModule],
+      imports: [MatCardModule, RouterTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProductListComponent);

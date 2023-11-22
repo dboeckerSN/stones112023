@@ -15,6 +15,7 @@ describe('AppComponent', () => {
         MatToolbarModule,
         MatCardModule,
         MatFormFieldModule,
+        RouterTestingModule,
       ],
       declarations: [AppComponent, ProductComponent, ProductFormComponent],
     }).compileComponents();
