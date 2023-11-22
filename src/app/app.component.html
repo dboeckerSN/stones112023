@@ -1,10 +1,9 @@
-<mat-toolbar color="primary"><span>Stones</span></mat-toolbar> Heute ist
+<mat-toolbar color="primary">
+  <span>Stones</span>
+  <a [routerLink]="['/products']">Produkt Liste</a>
+  <a [routerLink]="['/products/new']">Produkt Eingabe</a>
+</mat-toolbar>
+Heute ist
 {{ today | date : "fullDate" }}
 
-<stn-product-form (addProduct)="onAddProduct($event)" />
-
-@for (prod of products; track prod.id; let isOdd = $odd) {
-<mat-card [ngClass]="{ 'grey-background': isOdd }">
-  <stn-product [product]="prod"></stn-product>
-</mat-card>
-}
+<router-outlet />

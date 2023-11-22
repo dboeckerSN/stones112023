@@ -1,0 +1,8 @@
+.grey-background {
+  background-color: gray;
+}
+
+mat-card {
+  width: 400px;
+  margin-bottom: 5px;
+}
