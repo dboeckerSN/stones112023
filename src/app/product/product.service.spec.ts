@@ -20,14 +20,14 @@ describe('ProductService', () => {
 
   it('should add product to product list', () => {
     const product = {
-      id: 45,
+      id: 47,
       name: 'armin',
       price: 34,
       weight: 56,
     };
 
-    service.newProduct(product);
+    service.addProduct(product);
 
-    expect(service.getList()[0].id).toBe(45);
+    expect(service.getList()[0].id).toBe(product.id);
   });
 });

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -28,12 +28,8 @@ export class ProductFormComponent implements OnInit {
   });
 
   id = '';
-
-  constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private productService: ProductService
-  ) {}
+  private productService = inject(ProductService);
+  constructor(private fb: FormBuilder, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap) => {
