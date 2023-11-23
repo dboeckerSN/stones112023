@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductListComponent } from './product-list/product-list.component';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [ProductComponent, ProductFormComponent, ProductListComponent],
@@ -23,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     ReactiveFormsModule,
     MatCardModule,
+    HttpClientModule,
   ],
   exports: [ProductComponent, ProductFormComponent],
 })

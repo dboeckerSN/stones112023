@@ -1,11 +1,5 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { Product } from '../product';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from '../../utils/validators/custom-validators';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
@@ -55,14 +49,13 @@ export class ProductFormComponent implements OnInit {
       formValue.price &&
       formValue.weight
     ) {
-      const product = new Product(
-        +this.id,
-        formValue.name,
-        formValue.price,
-        formValue.weight
-      );
+      const product = {
+        name: formValue.name,
+        price: formValue.price,
+        weight: formValue.weight,
+      };
 
-      this.productService.addProduct(product);
+      this.productService.addProduct(product).subscribe();
       this.productForm.reset();
     }
   }

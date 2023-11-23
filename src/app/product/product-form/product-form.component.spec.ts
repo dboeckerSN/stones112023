@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ProductFormComponent', () => {
   let component: ProductFormComponent;
@@ -20,6 +21,7 @@ describe('ProductFormComponent', () => {
         ReactiveFormsModule,
         NoopAnimationsModule,
         RouterTestingModule,
+        HttpClientModule,
       ],
     }).compileComponents();
 
