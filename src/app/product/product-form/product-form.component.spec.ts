@@ -14,8 +14,9 @@ describe('ProductFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductFormComponent],
+      declarations: [],
       imports: [
+        ProductFormComponent,
         MatFormFieldModule,
         MatInputModule,
         ReactiveFormsModule,

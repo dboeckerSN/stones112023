@@ -13,8 +13,14 @@ describe('ProductListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductListComponent, ProductComponent, NettoPipe],
-      imports: [MatCardModule, RouterTestingModule],
+      declarations: [],
+      imports: [
+        ProductListComponent,
+        ProductComponent,
+        NettoPipe,
+        MatCardModule,
+        RouterTestingModule,
+      ],
       providers: [{ provide: ProductService, useClass: MockProductServie }],
     }).compileComponents();
 

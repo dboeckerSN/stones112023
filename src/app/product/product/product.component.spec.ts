@@ -12,8 +12,8 @@ describe('ProductComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductComponent, NettoPipe],
-      imports: [MatButtonModule],
+      declarations: [],
+      imports: [NettoPipe, MatButtonModule, ProductComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProductComponent);
